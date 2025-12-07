@@ -1,17 +1,8 @@
 import sys
-import requests
 from functools import cache
 from collections import defaultdict, Counter, deque
 
-def get_input(day, year, session_cookie):
-    url = f"https://adventofcode.com/{year}/day/{day}/input"
-    cookies = {"session": session_cookie}
-    r = requests.get(url, cookies=cookies)
-    r.raise_for_status()
-    return r.text
-
-session = "53616c7465645f5f11058e67d15f3400575f0a901b2649d6b36a3579a078b07dca4cf14f41eeebdc3fe309bab5d984016012f85401fad64f6c983be67303f966"
-D = get_input(7, 2025, session)
+D = sys.stdin.read()
 G = [list(row) for row in D.splitlines()]
 R = len(G)
 C = len(G[0])
